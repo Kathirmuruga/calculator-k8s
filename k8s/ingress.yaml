@@ -1,0 +1,19 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: calculator-ingress
+  namespace: calculator
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: calculator.local
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: calculator-service
+            port:
+              number: 80
+

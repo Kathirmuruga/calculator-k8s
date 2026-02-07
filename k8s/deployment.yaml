@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: calculator
+  namespace: calculator
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: calculator
+  template:
+    metadata:
+      labels:
+        app: calculator
+    spec:
+      containers:
+      - name: calculator
+        image: kathirmuruga/calculator-app:latest  
+        ports:
+        - containerPort: 80
+

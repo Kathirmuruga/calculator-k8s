@@ -1,0 +1,6 @@
+*.tgz
+*.log
+.env
+node_modules
+
+
