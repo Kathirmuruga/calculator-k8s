@@ -1,0 +1,14 @@
+- name: Deploy Calculator App
+  hosts: k8s-master
+  become: yes
+
+  tasks:
+
+    - name: Copy K8s manifests
+      copy:
+        src: ../k8s/
+        dest: /home/vagrant/k8s/
+
+    - name: Deploy Application
+      shell: kubectl apply -f /home/vagrant/k8s/
+
